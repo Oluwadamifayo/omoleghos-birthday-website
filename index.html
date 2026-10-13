@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Omolegho ✨</title>
+    <!-- Elegant Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23b38b59'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>">
+    <!-- Google Fonts: Playfair Display, Plus Jakarta Sans & Dancing Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="hero-tagline">A Celebration of Intent</span>
+            <h1 class="hero-title">Happy Birthday, Omolegho</h1>
+            <p class="hero-subtitle">A dedicated space celebrating your poise, your essence, and another beautiful year ahead.</p>
+        </header>
+
+        <!-- Interactive Note Trigger Section -->
+        <section class="section note-section">
+            <span class="section-label">A Special Note</span>
+            <div class="note-card" onclick="openModal('letterModal')">
+                <div class="note-icon-wrap">
+                    <i class="fa-solid fa-envelope-open-text note-icon"></i>
+                </div>
+                <div class="note-info">
+                    <h3>Omolegho 😫🥰</h3>
+                    <p class="note-preview">Ion srsly know where to start from, but firstly I'm grateful to God for making U to see another year, and for bringing U to my part...</p>
+                    <span class="read-more-btn">Read more <i class="fa-solid fa-chevron-right"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Designed with care for Omolegho</p>
+        </footer>
+    </main>
+
+    <!-- Sleek Pop-up Modal: Letter -->
+    <div class="modal-overlay" id="letterModal" onclick="closeModalOnOverlay(event, 'letterModal')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('letterModal')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-header">
+                <span class="modal-tag">Personal Birthday Wish</span>
+                <h2>Omolegho 😫🥰</h2>
+            </div>
+            <div class="modal-body romantic-text">
+                <p>Ion srsly know where to start from, but firstly I'm grateful to God for making U to see another year, and for bringing U to my part, I actually I'm soo happy I met U, U r one of the best ppl I have as friends, I can gladly call us friends, U always make me smile, U r always there for me no matter my situation, all d advice, all d jokes, all the laughters, no dull moments, although we fight but we still to talk things out, low key U r my second bestie, although I cannot replace Tunmise, but U also make mean allot to me.</p>
+                <p>U birthday marks a new breakthrough, another reason to know U more, another reason to spend time talking to U, and U r just U, I really love that. Thanks for always understanding, supporting and believing in me. U r unique, U don't care of others opinions, no have high value and U r one in a million, talking to U is a really great therapy on it's own, all my Riz and lines, Joy special, I give U quality lines to make sure U r happy, and no doubt, it works😂😂, U r a special gem, special somebody, as long as I'm with Joy, I'm always Joyful 😂😂.</p>
+                <p>Lemme move to d prayer aspect, I pray dat God grants U all Ur heart desires, U shall never lack anything good in this new age, U shall not loose anyone special to U in dis new age, God shall continue to increase U in strength, breast😂, wisdom, knowledge and understanding. I pray in this new age U shall excel amongst Ur peers, no evil shall before U, no weapon formed against U shall prosper, more money in Ur aza, more keys, U shall not have any reason to cry, it shall be tears of Joy and not tears of sorrow, no evil shall before U, U shall grow from strength to strength and glory to glory, Ur birthday shall not be Ur death day, more wins to come, open doors shall be Ur portion in Jesus name.</p>
+                <p>Happy birthday to U, king life and prosperity, in gud health and sound mind. No worries I'll sing for U later In d day. Thank you for showing me what true friendship really is, cheers to new age, more late nyt conversations, more rizz, more gist, more and more of good things. As U celebrate today, may Ur phone not stop buzzing with alerts, surprises, wishes, and lots and lots of good things, U r a special person and U deserve special things, on a normal day I no go wan write epistle, cos I'll get all emotional, but this is just my little way of appreciating U and wishing U Happy Happy birthday.</p>
+                <p class="signature-text">Much love from Aare 🥰😝😍❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            const target = document.getElementById(id);
+            if (target) {
+                target.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(id) {
+            const target = document.getElementById(id);
+            if (target) {
+                target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function closeModalOnOverlay(event, id) {
+            if (event.target === document.getElementById(id)) {
+                closeModal(id);
+            }
+        }
+    </script>
+</body>
+</html>
