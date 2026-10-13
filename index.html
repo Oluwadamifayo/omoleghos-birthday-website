@@ -32,15 +32,20 @@
             <p class="hero-subtitle">Honoring your light, your joy, and another extraordinary year of life.</p>
         </header>
 
-        <!-- Feature 1: Virtual Candle Blowing -->
+        <!-- Feature 1: Realistic Candle Blowing Card -->
         <section class="section candle-section">
             <div class="candle-card" id="candleCard" onclick="blowCandle()">
-                <div class="candle-icon-wrap">
-                    <i class="fa-solid fa-cake-candles candle-icon" id="candleIcon"></i>
+                <div class="real-candle-container">
+                    <div class="flame-glow" id="flameGlow"></div>
+                    <div class="flame" id="flame"></div>
+                    <div class="smoke-particle" id="smoke1"></div>
+                    <div class="smoke-particle" id="smoke2"></div>
+                    <div class="wick"></div>
+                    <div class="candle-body"></div>
                 </div>
                 <div class="candle-text">
                     <h4 id="candleHeading">Make a Birthday Wish 🎂</h4>
-                    <p id="candleSubtext">Tap the cake to blow out the candle and make a wish!</p>
+                    <p id="candleSubtext">Tap the glowing candle to blow it out & make a wish!</p>
                 </div>
             </div>
         </section>
@@ -78,16 +83,6 @@
                     <h4>Pure Joy Provider</h4>
                     <p>No dull moments ever—just endless laughter, quality rizz, and good energy always.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Feature 3: Interactive Hug & Wish Counter -->
-        <section class="section wish-counter-section">
-            <div class="wish-card">
-                <p>Send a virtual birthday hug to Omolegho!</p>
-                <button class="hug-btn" onclick="sendHug()">
-                    <i class="fa-solid fa-heart"></i> Send Hug (<span id="hugCount">0</span>)
-                </button>
             </div>
         </section>
 
@@ -142,31 +137,46 @@
             }
         }
 
-        // Virtual Candle Blow Function
+        // Realistic Candle Blow Out Effect
         let candleBlown = false;
         function blowCandle() {
             if (!candleBlown) {
                 candleBlown = true;
-                const icon = document.getElementById('candleIcon');
+                
+                const flame = document.getElementById('flame');
+                const glow = document.getElementById('flameGlow');
+                const smoke1 = document.getElementById('smoke1');
+                const smoke2 = document.getElementById('smoke2');
                 const heading = document.getElementById('candleHeading');
                 const subtext = document.getElementById('candleSubtext');
-                
-                icon.className = "fa-solid fa-face-smile-beam candle-icon blown";
+
+                // Extinguish flame with shrink animation
+                flame.classList.add('extinguished');
+                glow.classList.add('extinguished');
+
+                // Trigger realistic rising smoke wisps
+                setTimeout(() => {
+                    smoke1.classList.add('active');
+                }, 100);
+                setTimeout(() => {
+                    smoke2.classList.add('active');
+                }, 300);
+
+                // Update text elegantly
                 heading.innerText = "Wish Made! ✨";
                 subtext.innerText = "May all your birthday prayers and heart desires come true!";
+
+                // Trigger confetti burst
                 triggerConfetti();
+
+                // Haptic feedback if supported
+                if (navigator.vibrate) {
+                    navigator.vibrate([40, 30, 40]);
+                }
             }
         }
 
-        // Virtual Hug Counter
-        let count = 0;
-        function sendHug() {
-            count++;
-            document.getElementById('hugCount').innerText = count;
-            triggerConfetti();
-        }
-
-        // Lightweight Confetti Generator
+        // Confetti Engine
         function triggerConfetti() {
             const canvas = document.getElementById('confettiCanvas');
             const ctx = canvas.getContext('2d');
@@ -174,30 +184,36 @@
             canvas.height = window.innerHeight;
 
             let particles = [];
-            const colors = ['#c29b62', '#4a1e28', '#f8dbdf', '#e2a8b3'];
+            const colors = ['#c29b62', '#4a1e28', '#f8dbdf', '#e2a8b3', '#ffd700'];
 
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < 50; i++) {
                 particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height - canvas.height,
+                    x: canvas.width / 2 + (Math.random() * 60 - 30),
+                    y: canvas.height / 2,
                     size: Math.random() * 8 + 4,
                     color: colors[Math.floor(Math.random() * colors.length)],
-                    speed: Math.random() * 3 + 2,
-                    angle: Math.random() * 6.28
+                    speedY: Math.random() * -8 - 2,
+                    speedX: Math.random() * 8 - 4,
+                    gravity: 0.2,
+                    opacity: 1
                 });
             }
 
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 particles.forEach((p, i) => {
-                    p.y += p.speed;
-                    p.x += Math.sin(p.angle);
+                    p.speedY += p.gravity;
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    p.opacity -= 0.015;
+
                     ctx.fillStyle = p.color;
+                    ctx.globalAlpha = Math.max(0, p.opacity);
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                     ctx.fill();
 
-                    if (p.y > canvas.height) {
+                    if (p.opacity <= 0 || p.y > canvas.height) {
                         particles.splice(i, 1);
                     }
                 });
