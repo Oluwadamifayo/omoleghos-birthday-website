@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebrating Omolegho ✨</title>
-    <!-- Elegant Cake Favicon -->
+    <!-- Cake Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23b38b59'><path d='M256 32c17.7 0 32 14.3 32 32V96H224V64c0-17.7 14.3-32 32-32zm-64 96h128v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V128zm-64 96H384c17.7 0 32 14.3 32 32v64H96V256c0-17.7 14.3-32 32-32zm-64 128H448v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z'/></svg>">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,13 @@
 <body>
 
     <main class="container">
+        <!-- Top Controls: Confetti Button -->
+        <div class="top-bar">
+            <button class="confetti-btn" onclick="triggerConfetti()" title="Celebrate!">
+                <i class="fa-solid fa-party-horn"></i> 🎉 Tap for Joy
+            </button>
+        </div>
+
         <!-- Hero Section -->
         <header class="hero">
             <div class="birthday-badge">
@@ -25,7 +32,20 @@
             <p class="hero-subtitle">Honoring your light, your joy, and another extraordinary year of life.</p>
         </header>
 
-        <!-- Birthday Message Section -->
+        <!-- Feature 1: Virtual Candle Blowing -->
+        <section class="section candle-section">
+            <div class="candle-card" id="candleCard" onclick="blowCandle()">
+                <div class="candle-icon-wrap">
+                    <i class="fa-solid fa-cake-candles candle-icon" id="candleIcon"></i>
+                </div>
+                <div class="candle-text">
+                    <h4 id="candleHeading">Make a Birthday Wish 🎂</h4>
+                    <p id="candleSubtext">Tap the cake to blow out the candle and make a wish!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Letter Trigger -->
         <section class="section note-section">
             <div class="ribbon-card" onclick="openModal('letterModal')">
                 <div class="card-header-flex">
@@ -36,6 +56,38 @@
                     <h3>Omolegho 😫🥰</h3>
                     <p class="note-preview">Ion srsly know where to start from, but firstly I'm grateful to God for making U to see another year, and for bringing U to my part...</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- Feature 2: Reasons She's Special Deck -->
+        <section class="section special-reasons">
+            <span class="section-label">A Few Reminders ✨</span>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <i class="fa-solid fa-comments reason-icon"></i>
+                    <h4>Therapy Conversations</h4>
+                    <p>Talking to you is top-tier therapy—always full of vibes, jokes, and genuine comfort.</p>
+                </div>
+                <div class="reason-card">
+                    <i class="fa-solid fa-gem reason-icon"></i>
+                    <h4>High Value & Unique</h4>
+                    <p>You stand tall in your own confidence, unfazed by opinions, and truly one in a million.</p>
+                </div>
+                <div class="reason-card">
+                    <i class="fa-solid fa-face-laugh-beam reason-icon"></i>
+                    <h4>Pure Joy Provider</h4>
+                    <p>No dull moments ever—just endless laughter, quality rizz, and good energy always.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 3: Interactive Hug & Wish Counter -->
+        <section class="section wish-counter-section">
+            <div class="wish-card">
+                <p>Send a virtual birthday hug to Omolegho!</p>
+                <button class="hug-btn" onclick="sendHug()">
+                    <i class="fa-solid fa-heart"></i> Send Hug (<span id="hugCount">0</span>)
+                </button>
             </div>
         </section>
 
@@ -63,7 +115,11 @@
         </div>
     </div>
 
+    <!-- Canvas for Confetti -->
+    <canvas id="confettiCanvas"></canvas>
+
     <script>
+        // Modal functions
         function openModal(id) {
             const target = document.getElementById(id);
             if (target) {
@@ -84,6 +140,75 @@
             if (event.target === document.getElementById(id)) {
                 closeModal(id);
             }
+        }
+
+        // Virtual Candle Blow Function
+        let candleBlown = false;
+        function blowCandle() {
+            if (!candleBlown) {
+                candleBlown = true;
+                const icon = document.getElementById('candleIcon');
+                const heading = document.getElementById('candleHeading');
+                const subtext = document.getElementById('candleSubtext');
+                
+                icon.className = "fa-solid fa-face-smile-beam candle-icon blown";
+                heading.innerText = "Wish Made! ✨";
+                subtext.innerText = "May all your birthday prayers and heart desires come true!";
+                triggerConfetti();
+            }
+        }
+
+        // Virtual Hug Counter
+        let count = 0;
+        function sendHug() {
+            count++;
+            document.getElementById('hugCount').innerText = count;
+            triggerConfetti();
+        }
+
+        // Lightweight Confetti Generator
+        function triggerConfetti() {
+            const canvas = document.getElementById('confettiCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particles = [];
+            const colors = ['#c29b62', '#4a1e28', '#f8dbdf', '#e2a8b3'];
+
+            for (let i = 0; i < 40; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speed: Math.random() * 3 + 2,
+                    angle: Math.random() * 6.28
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((p, i) => {
+                    p.y += p.speed;
+                    p.x += Math.sin(p.angle);
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    if (p.y > canvas.height) {
+                        particles.splice(i, 1);
+                    }
+                });
+
+                if (particles.length > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            animate();
         }
     </script>
 </body>

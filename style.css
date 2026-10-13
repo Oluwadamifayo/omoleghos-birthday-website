@@ -21,20 +21,20 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.7;
     min-height: 100vh;
-    padding: 50px 20px;
+    padding: 30px 20px 60px;
     -webkit-font-smoothing: antialiased;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Birthday Cake Watermarks in Background */
+/* Background Watermark */
 body::before {
     content: "\f1fd";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: fixed;
-    top: 10%;
-    left: 5%;
+    top: 8%;
+    left: 4%;
     font-size: 5rem;
     color: rgba(194, 155, 98, 0.12);
     z-index: -1;
@@ -47,8 +47,8 @@ body::after {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: fixed;
-    bottom: 12%;
-    right: 5%;
+    bottom: 10%;
+    right: 4%;
     font-size: 6rem;
     color: rgba(194, 155, 98, 0.10);
     z-index: -1;
@@ -61,13 +61,35 @@ body::after {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 32px;
+}
+
+/* Top Bar & Confetti Button */
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.confetti-btn {
+    background: #f7ede2;
+    border: 1px solid var(--border-color);
+    color: var(--accent-plum);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.confetti-btn:hover {
+    transform: scale(1.04);
+    background: #f1dfcd;
 }
 
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 10px 0;
 }
 
 .birthday-badge {
@@ -82,16 +104,16 @@ body::after {
     text-transform: uppercase;
     padding: 8px 18px;
     border-radius: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .hero-title {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 3.8rem;
+    font-size: 3.6rem;
     font-weight: 600;
     color: var(--accent-plum);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     line-height: 1.1;
 }
 
@@ -103,13 +125,75 @@ body::after {
     font-weight: 300;
 }
 
-/* Ribbon-Styled Card */
+.section-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Candle Blow Card */
+.candle-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 22px 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.candle-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-gold);
+}
+
+.candle-icon-wrap {
+    width: 52px;
+    height: 52px;
+    background: #fef4e8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.candle-icon {
+    font-size: 1.6rem;
+    color: var(--accent-gold);
+    transition: all 0.3s ease;
+}
+
+.candle-icon.blown {
+    color: var(--accent-plum);
+    transform: scale(1.15);
+}
+
+.candle-text h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    color: var(--accent-plum);
+}
+
+.candle-text p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+/* Ribbon Card */
 .ribbon-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-left: 5px solid var(--accent-gold);
-    border-radius: 16px;
-    padding: 28px 24px;
+    border-radius: 18px;
+    padding: 26px 22px;
     cursor: pointer;
     box-shadow: var(--shadow-soft);
     transition: all 0.3s ease;
@@ -117,7 +201,6 @@ body::after {
 
 .ribbon-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(74, 30, 40, 0.08);
     border-left-color: var(--accent-plum);
 }
 
@@ -159,6 +242,85 @@ body::after {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* Reasons Grid */
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.reason-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.reason-icon {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+}
+
+.reason-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    color: var(--accent-plum);
+    margin-bottom: 6px;
+}
+
+.reason-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Hug Counter */
+.wish-card {
+    background: #fdf5eb;
+    border: 1px solid #f0dec8;
+    border-radius: 18px;
+    padding: 24px;
+    text-align: center;
+}
+
+.wish-card p {
+    font-size: 0.95rem;
+    color: var(--accent-plum);
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.hug-btn {
+    background: var(--accent-plum);
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(74, 30, 40, 0.15);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.hug-btn:hover {
+    transform: scale(1.05);
+    background: #612735;
+}
+
+/* Canvas Confetti Overlay */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
 }
 
 /* Modal Styling */
@@ -260,7 +422,7 @@ body::after {
 /* Footer */
 .footer {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
     border-top: 1px solid var(--border-color);
 }
 
@@ -273,18 +435,14 @@ body::after {
 
 @media (max-width: 600px) {
     body {
-        padding: 40px 16px;
+        padding: 24px 16px 40px;
     }
-    
+
     .hero-title {
         font-size: 2.8rem;
     }
 
-    .ribbon-card {
-        padding: 20px 18px;
-    }
-
-    .modal-content {
-        padding: 28px 20px;
+    .reasons-grid {
+        grid-template-columns: 1fr;
     }
 }
