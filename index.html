@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Omolegho ✨</title>
-    <!-- Elegant Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23b38b59'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>">
-    <!-- Google Fonts: Playfair Display, Plus Jakarta Sans & Dancing Script -->
+    <title>Celebrating Omolegho ✨</title>
+    <!-- Elegant Cake Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%23b38b59'><path d='M256 32c17.7 0 32 14.3 32 32V96H224V64c0-17.7 14.3-32 32-32zm-64 96h128v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V128zm-64 96H384c17.7 0 32 14.3 32 32v64H96V256c0-17.7 14.3-32 32-32zm-64 128H448v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z'/></svg>">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,38 +18,39 @@
     <main class="container">
         <!-- Hero Section -->
         <header class="hero">
-            <span class="hero-tagline">A Celebration of Intent</span>
-            <h1 class="hero-title">Happy Birthday, Omolegho</h1>
-            <p class="hero-subtitle">A dedicated space celebrating your poise, your essence, and another beautiful year ahead.</p>
+            <div class="birthday-badge">
+                <i class="fa-solid fa-cake-candles"></i> A Special Chapter Unfolds
+            </div>
+            <h1 class="hero-title">Omolegho Day 🎉</h1>
+            <p class="hero-subtitle">Honoring your light, your joy, and another extraordinary year of life.</p>
         </header>
 
-        <!-- Interactive Note Trigger Section -->
+        <!-- Birthday Message Section -->
         <section class="section note-section">
-            <span class="section-label">A Special Note</span>
-            <div class="note-card" onclick="openModal('letterModal')">
-                <div class="note-icon-wrap">
-                    <i class="fa-solid fa-envelope-open-text note-icon"></i>
+            <div class="ribbon-card" onclick="openModal('letterModal')">
+                <div class="card-header-flex">
+                    <span class="card-tag"><i class="fa-solid fa-gift"></i> Birthday Wish</span>
+                    <span class="tap-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
                 </div>
-                <div class="note-info">
+                <div class="card-content">
                     <h3>Omolegho 😫🥰</h3>
                     <p class="note-preview">Ion srsly know where to start from, but firstly I'm grateful to God for making U to see another year, and for bringing U to my part...</p>
-                    <span class="read-more-btn">Read more <i class="fa-solid fa-chevron-right"></i></span>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>Designed with care for Omolegho</p>
+            <p>Crafted with love for Omolegho ✨</p>
         </footer>
     </main>
 
-    <!-- Sleek Pop-up Modal: Letter -->
+    <!-- Modal Pop-up -->
     <div class="modal-overlay" id="letterModal" onclick="closeModalOnOverlay(event, 'letterModal')">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('letterModal')"><i class="fa-solid fa-xmark"></i></button>
             <div class="modal-header">
-                <span class="modal-tag">Personal Birthday Wish</span>
+                <span class="modal-tag"><i class="fa-solid fa-cake-candles"></i> Happy Birthday</span>
                 <h2>Omolegho 😫🥰</h2>
             </div>
             <div class="modal-body romantic-text">
