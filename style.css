@@ -1,12 +1,13 @@
 :root {
-    --bg-main: #fdfbf7;
-    --text-primary: #2c2225;
-    --text-secondary: #756266;
-    --accent-gold: #c29b62;
-    --accent-plum: #4a1e28;
-    --card-bg: #ffffff;
-    --border-color: rgba(194, 155, 98, 0.2);
-    --shadow-soft: 0 15px 35px rgba(74, 30, 40, 0.05);
+    --bg-main: #fff0f3;
+    --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #ffe4e9 50%, #fcd5df 100%);
+    --text-primary: #3d1521;
+    --text-secondary: #7a4655;
+    --accent-pink: #d90429;
+    --accent-berry: #9e2a47;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --border-color: rgba(158, 42, 71, 0.15);
+    --shadow-soft: 0 15px 35px rgba(158, 42, 71, 0.06);
 }
 
 * {
@@ -16,7 +17,7 @@
 }
 
 body {
-    background-color: var(--bg-main);
+    background: var(--bg-gradient);
     color: var(--text-primary);
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.7;
@@ -27,19 +28,19 @@ body {
     overflow-x: hidden;
 }
 
-/* Background Watermark */
+/* Elegant Cake Background Watermarks */
 body::before {
     content: "\f1fd";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: fixed;
-    top: 8%;
+    top: 6%;
     left: 4%;
-    font-size: 5rem;
-    color: rgba(194, 155, 98, 0.12);
+    font-size: 6rem;
+    color: rgba(158, 42, 71, 0.07);
     z-index: -1;
     pointer-events: none;
-    transform: rotate(-12deg);
+    transform: rotate(-15deg);
 }
 
 body::after {
@@ -47,13 +48,13 @@ body::after {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: fixed;
-    bottom: 10%;
+    bottom: 8%;
     right: 4%;
-    font-size: 6rem;
-    color: rgba(194, 155, 98, 0.10);
+    font-size: 7rem;
+    color: rgba(158, 42, 71, 0.06);
     z-index: -1;
     pointer-events: none;
-    transform: rotate(15deg);
+    transform: rotate(18deg);
 }
 
 .container {
@@ -71,20 +72,21 @@ body::after {
 }
 
 .confetti-btn {
-    background: #f7ede2;
+    background: #ffffff;
     border: 1px solid var(--border-color);
-    color: var(--accent-plum);
-    padding: 8px 16px;
+    color: var(--accent-berry);
+    padding: 8px 18px;
     border-radius: 30px;
     font-size: 0.82rem;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(158, 42, 71, 0.05);
     transition: transform 0.2s, background 0.2s;
 }
 
 .confetti-btn:hover {
     transform: scale(1.04);
-    background: #f1dfcd;
+    background: #fff5f7;
 }
 
 /* Hero Section */
@@ -96,8 +98,9 @@ body::after {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #f7ede2;
-    color: var(--accent-gold);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--border-color);
+    color: var(--accent-berry);
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -112,7 +115,7 @@ body::after {
     font-style: italic;
     font-size: 3.6rem;
     font-weight: 600;
-    color: var(--accent-plum);
+    color: var(--accent-berry);
     margin-bottom: 10px;
     line-height: 1.1;
 }
@@ -130,14 +133,14 @@ body::after {
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent-gold);
+    color: var(--accent-berry);
     font-weight: 600;
     margin-bottom: 16px;
 }
 
 /* Realistic Candle Section */
 .candle-card {
-    background: #fff;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 18px;
     padding: 22px 20px;
@@ -151,7 +154,7 @@ body::after {
 
 .candle-card:hover {
     transform: translateY(-3px);
-    border-color: var(--accent-gold);
+    border-color: var(--accent-berry);
 }
 
 .real-candle-container {
@@ -213,10 +216,10 @@ body::after {
 .candle-body {
     width: 20px;
     height: 32px;
-    background: linear-gradient(to right, #fbf2e3, #e5d2b8);
+    background: linear-gradient(to right, #ffffff, #f7d6df);
     border-radius: 3px 3px 2px 2px;
-    border-top: 1px solid #d4be9e;
-    box-shadow: inset -2px 0 4px rgba(0,0,0,0.06);
+    border-top: 1px solid #e8b4c2;
+    box-shadow: inset -2px 0 4px rgba(0,0,0,0.04);
 }
 
 /* Smoke Physics */
@@ -258,7 +261,7 @@ body::after {
 .candle-text h4 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.35rem;
-    color: var(--accent-plum);
+    color: var(--accent-berry);
 }
 
 .candle-text p {
@@ -270,7 +273,7 @@ body::after {
 .ribbon-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-left: 5px solid var(--accent-gold);
+    border-left: 5px solid var(--accent-berry);
     border-radius: 18px;
     padding: 26px 22px;
     cursor: pointer;
@@ -280,7 +283,7 @@ body::after {
 
 .ribbon-card:hover {
     transform: translateY(-4px);
-    border-left-color: var(--accent-plum);
+    box-shadow: 0 20px 40px rgba(158, 42, 71, 0.1);
 }
 
 .card-header-flex {
@@ -294,7 +297,7 @@ body::after {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent-gold);
+    color: var(--accent-berry);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -303,14 +306,14 @@ body::after {
 
 .tap-hint {
     font-size: 0.8rem;
-    color: var(--accent-plum);
+    color: var(--accent-pink);
     font-weight: 600;
 }
 
 .ribbon-card h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem;
-    color: var(--accent-plum);
+    color: var(--accent-berry);
     margin-bottom: 8px;
 }
 
@@ -331,7 +334,7 @@ body::after {
 }
 
 .reason-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 20px;
@@ -340,14 +343,14 @@ body::after {
 
 .reason-icon {
     font-size: 1.4rem;
-    color: var(--accent-gold);
+    color: var(--accent-berry);
     margin-bottom: 10px;
 }
 
 .reason-card h4 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.25rem;
-    color: var(--accent-plum);
+    color: var(--accent-berry);
     margin-bottom: 6px;
 }
 
@@ -375,7 +378,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(44, 34, 37, 0.5);
+    background: rgba(61, 21, 33, 0.45);
     backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
@@ -415,12 +418,12 @@ body::after {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: #fbf5ef;
+    background: #fff0f3;
     border: none;
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    color: var(--accent-plum);
+    color: var(--accent-berry);
     font-size: 1rem;
     cursor: pointer;
     display: flex;
@@ -432,7 +435,7 @@ body::after {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent-gold);
+    color: var(--accent-berry);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -443,7 +446,7 @@ body::after {
 .modal-header h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.8rem;
-    color: var(--accent-plum);
+    color: var(--accent-berry);
     margin-bottom: 20px;
 }
 
@@ -459,7 +462,7 @@ body::after {
 .signature-text {
     font-family: 'Dancing Script', cursive !important;
     font-size: 1.65rem !important;
-    color: var(--accent-plum) !important;
+    color: var(--accent-berry) !important;
     margin-top: 20px;
     font-weight: 700;
 }
